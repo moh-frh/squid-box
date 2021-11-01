@@ -32,7 +32,7 @@ const CustomDrawerContent = (props) => {
         <TouchableOpacity
           onPress={() => { console.log("logo")}}
         >
-          {/* <Image source={require('./src/assets/images/logo.png')} resizeMode="contain" style={styles.logo}/>  */}
+          <Image source={require('./src/assets/images/logo.png')} resizeMode="contain" style={styles.logo}/> 
         </TouchableOpacity>
       </View>
       <DrawerItem label="Premium" labelStyle={{color: COLORS.white}} icon={() => {return <Image source={require('./src/assets/images/premium.png')}  style={{width: 30, height: 30}}/>}} onPress={()=> console.log("Premium")} />
