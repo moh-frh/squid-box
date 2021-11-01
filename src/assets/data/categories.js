@@ -7,6 +7,7 @@ const categories = [
   {id: 5, title: 'kids', image: require('../images/kids.png')},
   {id: 6, title: 'dz channels', image: require('../images/algeria.png')},
   {id: 7, title: 'bein sports (LOW)', image: require('../images/bein.png')},
+  {id: 8, title: 'bein sports ', image: require('../images/bein.png')},
 ];
 
 export default categories;

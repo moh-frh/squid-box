@@ -2,7 +2,10 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '../constants/colors/colors';
-import VideoPlayer from 'react-native-video';
+// import VideoPlayer from 'react-native-video';
+import VideoPlayer from 'react-native-video-controls';
+
+import {DrawerItem} from '@react-navigation/drawer';
 
 export default function StreamingScreen({navigation, route}) {
   const {uri} = route.params;
@@ -16,18 +19,24 @@ export default function StreamingScreen({navigation, route}) {
       <TouchableOpacity onPress={() => navigation.navigate('ChannelScreen')}>
         <Text style={styles.btn}>Back</Text>
       </TouchableOpacity>
-      <VideoPlayer
-            source={{
-              // uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
-              uri: 'https://live-k2301-kbp.1plus1.video/sport/smil:sport.smil/playlist.m3u8',
-            }}
-            // source={TestVideo}
-            controls={true}
-            style={styles.video}
-            fullscreenAutorotate
-            fullscreen
-            resizeMode= 'cover'
-          />
+      {uri && streamingUrl && (
+        <VideoPlayer
+          source={{
+            // uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+            // uri: 'https://live-k2301-kbp.1plus1.video/sport/smil:sport.smil/playlist.m3u8',
+            uri: streamingUrl,
+            // uri: 'http://mhiptv.com:8080/twix334/ferhi/18',
+            // uri: 'http://mhiptv.com:8080/twix334/ferhi/23',
+            // uri: 'http://mhiptv.com:8080/twix334/ferhi/26188',
+          }}
+          // source={TestVideo}
+          // controls={true}
+          // style={styles.video}
+          // fullscreenAutorotate
+          // fullscreen
+          // resizeMode="cover"
+        />
+      )}
     </View>
   );
 }
