@@ -3,6 +3,8 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '../constants/colors/colors';
 
+import I18n from '../i18n';
+
 export default function SplashScreen(props) {
   return (
     <View style={styles.background}>
@@ -10,6 +12,7 @@ export default function SplashScreen(props) {
       <TouchableOpacity
         onPress={() => props.navigation.navigate('CategoryScreen')}>
         <Text style={styles.btn}>Gojjj</Text>
+        <Text style={styles.btn}>{I18n.t('premium')}</Text>
       </TouchableOpacity>
     </View>
   );
