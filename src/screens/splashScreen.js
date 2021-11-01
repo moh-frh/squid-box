@@ -9,7 +9,7 @@ export default function SplashScreen(props) {
       <Text style={styles.text}>Splash Screen</Text>
       <TouchableOpacity
         onPress={() => props.navigation.navigate('CategoryScreen')}>
-        <Text style={styles.btn}>Go</Text>
+        <Text style={styles.btn}>Gojjj</Text>
       </TouchableOpacity>
     </View>
   );

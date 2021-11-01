@@ -20,7 +20,7 @@ const ChannelScreen = ({navigation, route}) => {
         opacity: 0.5,
         borderTopLeftRadius: 20,
         borderBottomRightRadius: 20,
-        flex: 1/3,
+        flex: 1 / 3,
         alignItems: 'center',
         justifyContent: 'center',
         height: 120,
@@ -28,17 +28,17 @@ const ChannelScreen = ({navigation, route}) => {
         marginBottom: 30,
         borderColor: colors.white,
         borderWidth: 0.3,
-      }}
-      onPress={() => console.log('clicked !!')}>
+      }}>
       <Pressable
         style={{
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-        }}>
+        }}
+        onPress={() => navigation.navigate('StreamingScreen', {uri: item.uri})}>
         <Image
-          style={{width: 50, height: 50, marginBottom: 5}}
-          source={item.image}
+          style={{width: 50, height: 50, resizeMode:'cover', marginBottom: 5}}
+          source={{uri: item.image}}
         />
         <Text
           style={{
@@ -63,7 +63,7 @@ const ChannelScreen = ({navigation, route}) => {
           keyExtractor={item => item.id}
           numColumns={3}
           // flex= {1/3}
-          style={{flex: 1/3}}
+          style={{flex: 1 / 3}}
           contentContainerStyle={{paddingVertical: 20}}
         />
       </View>
