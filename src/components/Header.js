@@ -14,18 +14,29 @@ import ListIcon from '../assets/icons/list.png';
 import LogoIcon from '../assets/icons/logo.png';
 import SearchIcon from '../assets/images/search.png';
 import LeftArrowIcon from '../assets/icons/arrow.png';
+import Logo from '../assets/images/logo.png';
  
-const Header = ({search, onChangeText, onPress}) => {
+const Header = ({search, onChangeText, onPress, screen}) => {
   return (
     <View style={styles.headerContainer}>
       <View style={{width: '10%'}}>
         <TouchableOpacity onPress={onPress}>
         {/* if/else for list/arrow icons */}
+        {
+          screen === 'ChannelScreen'
+          ?
           <Image
             source={LeftArrowIcon}
             resizeMode="contain"
             style={styles.headerImage}
           />
+          :
+          <Image
+            source={Logo}
+            resizeMode="contain"
+            style={styles.headerLogo}
+          />
+        }
         </TouchableOpacity>
       </View>
 
@@ -62,6 +73,10 @@ const styles = StyleSheet.create({
   headerImage: {
     width: 30,
     height: 30,
+  },
+  headerLogo: {
+    width: 50,
+    height: 50,
   },
   searchContainer: {
     width: '70%',

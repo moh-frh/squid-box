@@ -1,14 +1,23 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, {useState, useEffect} from 'react';
 import {View, Text, Pressable, FlatList, Image} from 'react-native';
 import channels from '../assets/data/channels';
 import colors from '../constants/colors/colors';
 import Header from '../components/Header';
+import {useRoute} from '@react-navigation/native';
 import {baseProps} from 'react-native-gesture-handler/lib/typescript/handlers/gestureHandlers';
+
 const ChannelScreen = ({navigation, route}) => {
   const {channel_id} = route.params;
   const [categoriesList, setCategoriesList] = useState([]);
+  const [screenName, setScreenName] = useState();
+
+  const routeName = useRoute();
+
   useEffect(() => {
+    console.warn(routeName.name);
+    setScreenName(routeName.name);
     setCategoriesList(
       channels.filter(ch => ch.categories.includes(channel_id)),
     );
@@ -37,7 +46,7 @@ const ChannelScreen = ({navigation, route}) => {
         }}
         onPress={() => navigation.navigate('StreamingScreen', {uri: item.uri})}>
         <Image
-          style={{width: 50, height: 50, resizeMode:'cover', marginBottom: 5}}
+          style={{width: 50, height: 50, resizeMode: 'cover', marginBottom: 5}}
           source={{uri: item.image}}
         />
         <Text
@@ -54,7 +63,7 @@ const ChannelScreen = ({navigation, route}) => {
   );
   return (
     <View style={{flex: 1, backgroundColor: colors.dark}}>
-      <Header onPress={() => navigation.navigate('CategoryScreen')} />
+      <Header onPress={() => navigation.navigate('CategoryScreen')} screen={screenName} />
       <View style={{flex: 1, paddingHorizontal: 25}}>
         <FlatList
           // data={channelsList}

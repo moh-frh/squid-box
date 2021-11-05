@@ -6,7 +6,7 @@ const channels = [
     categories: [7],
     image:
       'https://assets.bein.com/mena/sites/3/2015/06/beIN_SPORTS1_PREMIUM_Digital_Mono.png',
-    uri: 'http://mhiptv.com:8080/twix334/ferhi/22',
+    uri: 'https://live-k2301-kbp.1plus1.video/sport/smil:sport.smil/playlist.m3u8',
     language: 'ar',
   },
   {
