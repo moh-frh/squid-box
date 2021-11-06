@@ -4,9 +4,8 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '../constants/colors/colors';
 // import VideoPlayer from 'react-native-video';
 import VideoPlayer from 'react-native-video-controls';
-
-import {DrawerItem} from '@react-navigation/drawer';
-
+import { VLCPlayer, VlCPlayerView } from 'react-native-vlc-media-player';
+import {LivePlayer} from 'react-native-live-stream';
 export default function StreamingScreen({navigation, route}) {
   const {uri} = route.params;
   const [streamingUrl, setStreamingUrl] = useState();
@@ -15,28 +14,33 @@ export default function StreamingScreen({navigation, route}) {
   }, []);
   return (
     <View style={styles.background}>
-      <Text style={styles.text}>Streaming Screen {streamingUrl}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('ChannelScreen')}>
-        <Text style={styles.btn}>Back</Text>
-      </TouchableOpacity>
-      {uri && streamingUrl && (
+      {/* {uri && streamingUrl && ( */}
         <VideoPlayer
           source={{
-            // uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
-            // uri: 'https://live-k2301-kbp.1plus1.video/sport/smil:sport.smil/playlist.m3u8',
-            uri: streamingUrl,
-            // uri: 'http://mhiptv.com:8080/twix334/ferhi/18',
-            // uri: 'http://mhiptv.com:8080/twix334/ferhi/23',
-            // uri: 'http://mhiptv.com:8080/twix334/ferhi/26188',
+            uri: 'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4',
           }}
-          // source={TestVideo}
-          // controls={true}
-          // style={styles.video}
-          // fullscreenAutorotate
-          // fullscreen
-          // resizeMode="cover"
         />
-      )}
+      {/* )} */}
+      <Text>fghjklm</Text>
+      {/* <VLCPlayer
+        style={{width: 300}}
+        videoAspectRatio="16:9"
+        source={{ uri: "https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4"}}
+    /> */}
+      {/* <LivePlayer
+        source={{
+          uri: 'http://mantech-tv.xyz:8888/mantechnologysp/0775092766/1',
+        }}
+        style={{width: 200}}
+        paused={false}
+        muted={false}
+        bufferTime={300}
+        maxBufferTime={1000}
+        resizeMode={'contain'}
+        onLoading={() => {}}
+        onLoad={() => {}}
+        onEnd={() => {}}
+      /> */}
     </View>
   );
 }
